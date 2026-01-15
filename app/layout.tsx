@@ -1,15 +1,25 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Cormorant_Garamond, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const _inter = Inter({ subsets: ["latin"] })
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant"
+})
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter"
+})
 
 export const metadata: Metadata = {
-  title: "John Doe | Software Engineer",
+  title: "Charbel Maroun | Software Engineer",
   description:
-    "Software Engineer passionate about building impactful software. View my portfolio, experience, and projects.",
+    "Software Engineering student at University of Calgary specializing in backend systems, distributed architectures, and AI-driven automation. Currently at Pason Systems.",
 }
 
 export default function RootLayout({
@@ -19,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
-      <body className={`font-sans antialiased`}>
+      <body className={`${cormorantGaramond.variable} ${inter.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>
