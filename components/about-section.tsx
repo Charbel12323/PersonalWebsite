@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Code2 } from "lucide-react"
+import Image from "next/image"
 
 export function AboutSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -44,18 +44,18 @@ export function AboutSection() {
           <div className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="mb-12">
               <p className="text-stone-800 mb-6 leading-relaxed text-lg font-sans">
-                I&apos;m a Software Engineering student at the University of Calgary on the co-op program with a 3.8 GPA and Dean&apos;s List honors. I specialize in building scalable backend systems, distributed architectures, and AI-driven automation solutions.
+                I&apos;m a third-year Software Engineering student at the University of Calgary on the co-op program. I&apos;m passionate about backend development and building scalable systems that solve real problems.
               </p>
               <p className="text-stone-800 mb-8 leading-relaxed text-lg font-sans">
-                Currently working as a Software Engineering Intern at Pason Systems, where I&apos;ve deployed automation reducing system downtime by 94% and built CI/CD pipelines that eliminated weekly failures. I&apos;m also AWS certified (Data Engineer & Cloud Practitioner) and have presented my research at IEEE ICAC 2025 in South Korea.
+                Currently, I&apos;m working as a Software Engineering Intern at Pason Systems, where I&apos;ve deployed Python/Bash automation to monitor thousands of user requests and migrated legacy CI/CD pipelines to Dockerized AWS environments. I&apos;m excited to start a new position at the Intelligent Navigation and Mapping Lab as a ML Engineer Intern, working on autonomous vehicle navigation systems.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-amber-900/20">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-amber-900/20">
               <div>
                 <p className="text-xs font-semibold text-stone-700 mb-2 uppercase tracking-wider font-(family-name:--font-cormorant)">Email</p>
-                <a href="mailto:charbel.maroun@ucalgary.ca" className="text-slate-900 hover:text-amber-900 transition-colors text-base font-sans">
-                  charbel.maroun@ucalgary.ca
+                <a href="mailto:charbel.maroun@ucalgary.ca" className="text-slate-900 hover:text-amber-900 transition-colors text-sm font-sans whitespace-nowrap">
+                  mcharbel439@gmail.com
                 </a>
               </div>
 
@@ -73,8 +73,8 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className={`h-80 md:h-96 rounded-2xl bg-white border-2 border-amber-200 flex items-center justify-center transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <Code2 className="h-32 w-32 text-amber-600" />
+          <div className={`h-80 md:h-96 rounded-2xl bg-white border-2 border-amber-200 flex items-center justify-center overflow-hidden transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <Image src="/logos/GenRepAI.jpg" alt="About Me" width={400} height={400} className="object-cover w-full h-full" />
           </div>
         </div>
       </div>

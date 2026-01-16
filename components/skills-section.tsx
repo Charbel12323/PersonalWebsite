@@ -5,35 +5,26 @@ import { useEffect, useRef, useState } from "react"
 
 const skillCategories = [
   {
-    title: "Languages & Systems",
-    skills: ["Python", "Java", "C/C++", "SQL", "Bash", "TypeScript", "JavaScript"],
+    title: "Languages",
+    skills: ["Python", "Java", "C/C++", "TypeScript", "JavaScript", "SQL", "Bash"],
   },
   {
-    title: "Backend & Architecture",
+    title: "Frameworks",
     skills: [
-      "Microservices",
-      "Distributed Systems",
-      "Event-Driven Pipelines",
+      "Next.js",
+      "React",
+      "Node.js",
+      "Express",
+      "Flask",
+      "PyTorch",
+      "LangChain",
       "Kafka",
-      "REST APIs",
-      "WebSockets",
+      "Tailwind CSS",
     ],
   },
   {
-    title: "Cloud & Infrastructure",
-    skills: ["AWS", "Azure", "Docker", "Kubernetes", "GitHub Actions", "Linux", "Git"],
-  },
-  {
-    title: "Data & AI",
-    skills: ["PostgreSQL", "MongoDB", "Redis", "DynamoDB", "PyTorch", "LangChain", "RAG", "XGBoost"],
-  },
-  {
-    title: "Frontend & Frameworks",
-    skills: ["Next.js", "React", "Node.js", "Express", "Flask", "Tailwind CSS"],
-  },
-  {
-    title: "Observability & Testing",
-    skills: ["Splunk", "JUnit", "Mockito", "Integration Testing", "CI/CD Pipelines", "Load Testing"],
+    title: "Developer Tools",
+    skills: ["AWS", "Azure", "Docker", "Kubernetes", "Git", "GitHub Actions", "PostgreSQL", "MongoDB", "Redis", "Splunk", "Linux"],
   },
 ]
 

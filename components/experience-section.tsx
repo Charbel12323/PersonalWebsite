@@ -2,6 +2,7 @@
 
 import { Building2 } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 
 const experiences = [
   {
@@ -15,6 +16,7 @@ const experiences = [
       "Migrated CI/CD pipelines to Dockerized AWS EC2 environments using GitHub Actions, eliminating weekly failures",
       "Implemented integration/regression testing within CI pipelines, reducing post-deployment incidents by 98%",
     ],
+    logo: "/logos/Pason.png",
   },
   {
     company: "HXI Research Lab",
@@ -26,6 +28,7 @@ const experiences = [
       "Designed a scalable backend for live telemetry processing, sustaining 7,000+ req/sec under production-level load",
       "Re-architected time-series data pipelines handling 15M+ events, cutting latency from ~500 ms to under 100 ms",
     ],
+    logo: "/logos/HXI.png",
   },
   {
     company: "GenRep AI",
@@ -37,6 +40,7 @@ const experiences = [
       "Designed and load-tested an event-driven backend, sustaining 5,000 req/sec under simulated production traffic",
       "Implemented real-time transcription and RAG pipeline, improving action item extraction accuracy from 60% to 90%",
     ],
+    logo: "/logos/GenRepLogo.png",
   },
 ]
 
@@ -91,9 +95,15 @@ export function ExperienceSection() {
                 <div className="ml-16 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-amber-100/50 hover:border-amber-200/70 group">
                   <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <Building2 className="h-6 w-6 text-white" />
-                      </div>
+                      {exp.logo ? (
+                        <div className="w-12 h-12 rounded-xl bg-white border border-gray-200 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+                          <Image src={exp.logo} alt={`${exp.company} logo`} width={48} height={48} className="object-contain p-1" />
+                        </div>
+                      ) : (
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <Building2 className="h-6 w-6 text-white" />
+                        </div>
+                      )}
                       <div>
                         <h3 className="text-xl font-bold text-stone-900 font-(family-name:--font-cormorant)">{exp.role}</h3>
                         <p className="text-amber-800 font-semibold font-sans">{exp.company}</p>
@@ -108,7 +118,7 @@ export function ExperienceSection() {
                   <ul className="space-y-3 mt-4">
                     {exp.description.map((item, i) => (
                       <li key={i} className="text-stone-700 text-base leading-relaxed flex gap-3 font-sans">
-                        <span className="text-amber-700 font-bold mt-0.5 shrink-0">•</span>
+                        <span className="text-amber-700 font-bold mt-1 shrink-0">•</span>
                         <span>{item}</span>
                       </li>
                     ))}

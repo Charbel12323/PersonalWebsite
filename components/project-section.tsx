@@ -1,6 +1,6 @@
 "use client"
 
-import { ExternalLink, Laptop, Brain, Activity } from "lucide-react"
+import { ExternalLink, Laptop, Brain, Activity, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useEffect, useRef, useState } from "react"
@@ -36,6 +36,7 @@ const projects = [
 
 export function ProjectSection() {
   const [isVisible, setIsVisible] = useState(false)
+  const [currentProject, setCurrentProject] = useState(0)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -61,6 +62,26 @@ export function ProjectSection() {
     }
   }, [])
 
+  // Auto-play carousel every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentProject((prev) => (prev + 1) % projects.length)
+    }, 5000)
+
+    return () => clearInterval(timer)
+  }, [])
+
+  const nextProject = () => {
+    setCurrentProject((prev) => (prev + 1) % projects.length)
+  }
+
+  const prevProject = () => {
+    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length)
+  }
+
+  const project = projects[currentProject]
+  const Icon = project.icon
+
   return (
     <section ref={sectionRef} id="projects" className="py-24 px-6 bg-[#f5f3f0]">
       <div className="max-w-6xl mx-auto">
@@ -71,92 +92,82 @@ export function ProjectSection() {
           <div className="w-16 h-1 bg-[#b8860b]"></div>
         </div>
 
-        <div className="space-y-12">
-          {projects.map((project, index) => {
-            const Icon = project.icon
-            const isEven = index % 2 === 0
+        <div className="relative overflow-hidden">
+          {/* Carousel Content */}
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div
+              key={`icon-${currentProject}`}
+              className="h-64 md:h-80 rounded-2xl border-2 border-amber-300 bg-white flex items-center justify-center animate-in fade-in slide-in-from-left duration-500"
+            >
+              <Icon className="h-32 w-32 text-amber-600" />
+            </div>
 
-            return (
-              <div
-                key={index}
-                className={`grid md:grid-cols-2 gap-8 items-center ${!isEven ? "md:flex-row-reverse" : ""}`}
-              >
-                {isEven ? (
-                  <>
-                    <div className={`h-64 md:h-80 rounded-2xl border-2 border-amber-300 bg-white flex items-center justify-center transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ transitionDelay: `${index * 100 + 100}ms` }}>
-                      <Icon className="h-32 w-32 text-amber-600" />
-                    </div>
+            <div
+              key={`content-${currentProject}`}
+              className="animate-in fade-in slide-in-from-right duration-500"
+            >
+              <h3 className="text-3xl text-slate-900 mb-2 font-(family-name:--font-cormorant)">{project.title}</h3>
+              <p className="text-amber-900 mb-4 font-semibold text-lg font-sans">{project.subtitle}</p>
+              <p className="text-stone-800 mb-6 leading-relaxed text-base font-sans">
+                {project.description}
+              </p>
 
-                    <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`} style={{ transitionDelay: `${index * 100 + 200}ms` }}>
-                      <h3 className="text-3xl text-slate-900 mb-2 font-(family-name:--font-cormorant)">{project.title}</h3>
-                      <p className="text-amber-900 mb-4 font-semibold text-lg font-sans">{project.subtitle}</p>
-                      <p className="text-stone-800 mb-6 leading-relaxed text-base font-sans">
-                        {project.description}
-                      </p>
+              <ul className="space-y-2 mb-6">
+                {project.highlights.map((highlight, i) => (
+                  <li key={i} className="text-base text-stone-800 flex gap-2 font-sans">
+                    <span className="text-amber-700 font-bold">•</span>
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
 
-                      <ul className="space-y-2 mb-6">
-                        {project.highlights.map((highlight, i) => (
-                          <li key={i} className="text-base text-stone-800 flex gap-2 font-sans">
-                            <span className="text-amber-700 font-bold">•</span>
-                            {highlight}
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {project.techStack.map((tech) => (
-                          <Badge key={tech} className="text-sm bg-amber-200 text-slate-900 hover:bg-amber-300 border-amber-300 font-sans">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-
-                      <Button className="gap-2 bg-slate-900 text-white hover:bg-slate-800">
-                        <ExternalLink className="h-4 w-4" />
-                        View Project
-                      </Button>
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`} style={{ transitionDelay: `${index * 100 + 200}ms` }}>
-                      <h3 className="text-3xl text-slate-900 mb-2 font-(family-name:--font-cormorant)">{project.title}</h3>
-                      <p className="text-amber-900 mb-4 font-semibold text-lg font-sans">{project.subtitle}</p>
-                      <p className="text-stone-800 mb-6 leading-relaxed text-base font-sans">
-                        {project.description}
-                      </p>
-
-                      <ul className="space-y-2 mb-6">
-                        {project.highlights.map((highlight, i) => (
-                          <li key={i} className="text-base text-stone-800 flex gap-2 font-sans">
-                            <span className="text-amber-700 font-bold">•</span>
-                            {highlight}
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {project.techStack.map((tech) => (
-                          <Badge key={tech} className="text-sm bg-amber-200 text-slate-900 hover:bg-amber-300 border-amber-300 font-sans">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-
-                      <Button className="gap-2 bg-slate-900 text-white hover:bg-slate-800">
-                        <ExternalLink className="h-4 w-4" />
-                        View Project
-                      </Button>
-                    </div>
-
-                    <div className={`h-64 md:h-80 rounded-2xl border-2 border-amber-300 bg-white flex items-center justify-center transition-all duration-700 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ transitionDelay: `${index * 100 + 100}ms` }}>
-                      <Icon className="h-32 w-32 text-amber-600" />
-                    </div>
-                  </>
-                )}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {project.techStack.map((tech) => (
+                  <Badge key={tech} className="text-sm bg-amber-200 text-slate-900 hover:bg-amber-300 border-amber-300 font-sans">
+                    {tech}
+                  </Badge>
+                ))}
               </div>
-            )
-          })}
+
+              <Button className="gap-2 bg-[#b8860b] text-white hover:bg-[#9a7309]">
+                <ExternalLink className="h-4 w-4" />
+                View Project
+              </Button>
+            </div>
+          </div>
+
+          {/* Navigation Arrows */}
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <button
+              onClick={prevProject}
+              className="h-12 w-12 rounded-full bg-[#b8860b] hover:bg-[#9a7309] transition-colors duration-300 flex items-center justify-center"
+              aria-label="Previous project"
+            >
+              <ChevronLeft className="h-6 w-6 text-white" />
+            </button>
+
+            {/* Dots Indicator */}
+            <div className="flex gap-2">
+              {projects.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentProject(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentProject ? "w-8 bg-[#b8860b]" : "w-2 bg-[#b8860b]/30"
+                  }`}
+                  aria-label={`Go to project ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={nextProject}
+              className="h-12 w-12 rounded-full bg-[#b8860b] hover:bg-[#9a7309] transition-colors duration-300 flex items-center justify-center"
+              aria-label="Next project"
+            >
+              <ChevronRight className="h-6 w-6 text-white" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

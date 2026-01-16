@@ -34,7 +34,7 @@ export function Navigation() {
     >
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold text-foreground">
-          JD
+          CM
         </Link>
 
         {/* Desktop Navigation */}
