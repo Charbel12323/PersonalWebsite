@@ -1,7 +1,7 @@
 "use client"
 
-import { GraduationCap } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 
 export function EducationSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -42,8 +42,8 @@ export function EducationSection() {
 
         <div className={`bg-[#0f2744]/50 rounded-2xl p-8 border border-blue-900/20 transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="flex items-start gap-6">
-            <div className="w-16 h-16 rounded-lg bg-blue-900/20 border border-blue-800/30 flex items-center justify-center flex-shrink-0">
-              <GraduationCap className="h-8 w-8 text-blue-400" />
+            <div className="w-16 h-16 rounded-lg bg-white border border-blue-800/30 flex items-center justify-center flex-shrink-0 overflow-hidden">
+              <Image src="/logos/uofc.jpg" alt="University of Calgary" width={64} height={64} className="object-contain p-1" />
             </div>
 
             <div className="flex-1">

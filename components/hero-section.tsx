@@ -60,7 +60,7 @@ export function HeroSection() {
             </div>
 
             <p className={`text-gray-300 text-lg font-sans italic transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              &ldquo;Talk is cheap. Show me the code.&rdquo; — Linus Torvalds
+              &ldquo;The best way to predict the future is to implement it.&rdquo; — David Heinemeier Hansson
             </p>
 
             <div className={`flex items-center gap-4 pt-4 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>

@@ -200,7 +200,7 @@ export function ContactSection() {
             </Button>
 
             {submitStatus === "success" && (
-              <p className="text-green-400 text-center font-sans">Message sent successfully! I&apos;ll get back to you soon.</p>
+              <p className="text-[#b8860b] text-center font-sans">I&apos;ll get back to you as soon as I can!</p>
             )}
             {submitStatus === "error" && (
               <p className="text-red-400 text-center font-sans">Something went wrong. Please try again.</p>

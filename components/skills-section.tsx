@@ -71,7 +71,7 @@ export function SkillsSection() {
               <h3 className="text-sm font-semibold text-stone-700 mb-6 uppercase tracking-wider font-(family-name:--font-cormorant)">{category.title}</h3>
               <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill) => (
-                  <Badge key={skill} className="text-sm bg-[#f5f3f0] text-slate-900 hover:bg-amber-100 border border-amber-900/10 rounded-full px-4 py-2 font-sans">
+                  <Badge key={skill} className="text-sm bg-[#b8860b] text-white hover:bg-[#a0750a] border border-amber-900/10 rounded-full px-4 py-2 font-sans">
                     {skill}
                   </Badge>
                 ))}

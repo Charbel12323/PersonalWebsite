@@ -6,26 +6,14 @@ import Image from "next/image"
 
 const experiences = [
   {
-    company: "Intelligent Navigation and Mapping Lab",
-    role: "Computer Vision Researcher",
-    duration: "Jan 2026 – Present",
-    location: "Calgary, AB",
-    description: [
-      "Conducting research on multi-sensor integration (GNSS, IMU, camera, LiDAR, radar, odometer) for reliable navigation",
-      "Developing machine learning algorithms to enhance autonomous navigation and mapping systems",
-      "Working on scalable and efficient solutions for precise positioning and spatial mapping technologies",
-    ],
-  },
-  {
     company: "Pason Systems",
     role: "Software Engineering Intern",
     duration: "May 2025 – Present",
     location: "Calgary, AB",
     description: [
-      "Deployed automation reducing system downtime from ~3 hours to ~30 minutes across 1,000+ production Linux systems",
-      "Engineered scripts for Splunk logging and telemetry, eliminating field tech visits and saving ~$100K/month",
-      "Migrated CI/CD pipelines to Dockerized AWS EC2 environments using GitHub Actions, eliminating weekly failures",
-      "Implemented integration/regression testing within CI pipelines, reducing post-deployment incidents by 98%",
+      "Developed monitoring automation for over 1,000 Linux workstations and migrated legacy CI/CD pipelines to AWS-based environments.",
+      "Improved backend services through API enhancements and automated testing, resulting in increased scalability, stronger security, and a 65% reduction in response times.",
+      "Established reliable CI pipelines with integrated unit and integration testing to support consistent, high-quality releases.",
     ],
     logo: "/logos/Pason.png",
   },
@@ -35,9 +23,9 @@ const experiences = [
     duration: "Apr 2025 – Aug 2025",
     location: "Calgary, AB",
     description: [
-      "Built a real-time hydrogen-pipeline digital twin that improved leak-detection accuracy from 78% to 84%",
-      "Designed a scalable backend for live telemetry processing, sustaining 7,000+ req/sec under production-level load",
-      "Re-architected time-series data pipelines handling 15M+ events, cutting latency from ~500 ms to under 100 ms",
+      "Designed and deployed a scalable, load-balanced backend on AWS using distributed microservices to support real-time telemetry ingestion, handling 7,000 req/sec.",
+      "Optimized DynamoDB data models and partitioning to improve throughput and reduce latency from ~500 ms to under 100 ms while handling thousands of requests per second.",
+      "Introduced caching strategies for high-read access patterns, reducing database load and improving read latency for frequently accessed telemetry data.",
     ],
     logo: "/logos/HXI.png",
   },
@@ -47,9 +35,9 @@ const experiences = [
     duration: "Jul 2024 – Feb 2025",
     location: "Calgary, AB",
     description: [
-      "Led a team of 5 engineers to architect and deliver a scalable cloud platform for real-time meeting automation",
-      "Designed and load-tested an event-driven backend, sustaining 5,000 req/sec under simulated production traffic",
-      "Implemented real-time transcription and RAG pipeline, improving action item extraction accuracy from 60% to 90%",
+      "Led a team of five engineers to architect and deliver a scalable full-stack web and cloud platform for real-time meeting automation.",
+      "Designed and implemented REST APIs and backend services using Node.js and Express, supporting peak traffic of 10K requests per day; achieved full API test coverage with Chai, reducing production bug reports by 70%.",
+      "Built end-to-end features spanning frontend interfaces and backend services, including real-time transcription and a retrieval-augmented generation (RAG) pipeline that improved action-item extraction accuracy from 60% to 90%.",
     ],
     logo: "/logos/GenRepLogo.png",
   },
