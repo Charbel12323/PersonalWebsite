@@ -40,7 +40,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
-      className="min-h-screen flex items-center justify-center relative px-6 py-20 bg-[#0a1628] text-white"
+      className="min-h-screen flex items-center justify-center relative px-6 pt-20 pb-8 bg-[#0a1628] text-white"
     >
       <div className="max-w-6xl w-full mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -82,22 +82,24 @@ export function HeroSection() {
             </div>
 
             <div className={`pt-4 transition-all duration-700 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <Button className="gap-2 hover:scale-105 transition-transform bg-[#b8860b] text-white hover:bg-[#9a7309] text-lg px-8 py-6 uppercase tracking-wider">
-                <Download className="h-5 w-5" />
-                Download Resume
+              <Button asChild className="gap-2 hover:scale-105 transition-transform bg-[#b8860b] text-white hover:bg-[#9a7309] text-lg px-8 py-6 uppercase tracking-wider">
+                <a href="/CharbelOfficialResume.pdf" download>
+                  <Download className="h-5 w-5" />
+                  Download Resume
+                </a>
               </Button>
             </div>
           </div>
 
           {/* Right side - Profile Image */}
           <div className={`flex items-center justify-center transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-            <div className="w-[28rem] h-[36rem] rounded-[50%] border-4 border-[#b8860b] overflow-hidden bg-slate-800 flex items-center justify-center">
+            <div className="w-[20rem] h-[28rem] rounded-3xl border-4 border-[#b8860b] overflow-hidden bg-gray-300">
               <Image
                 src="/logos/CEO.png"
                 alt="Charbel Maroun"
-                width={448}
-                height={576}
-                className="object-contain w-full h-full scale-110"
+                width={600}
+                height={600}
+                className="object-contain w-full h-full scale-105"
               />
             </div>
           </div>

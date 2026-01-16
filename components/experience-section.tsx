@@ -6,6 +6,18 @@ import Image from "next/image"
 
 const experiences = [
   {
+    company: "Intelligent Navigation and Mapping Lab",
+    role: "Computer Vision Researcher",
+    duration: "Jan 2026 – Present",
+    location: "Calgary, AB",
+    description: [
+      "Conducting research on multi-sensor integration (GNSS, IMU, camera, LiDAR, radar, odometer) for reliable navigation",
+      "Developing machine learning algorithms to enhance autonomous navigation and mapping systems",
+      "Working on scalable and efficient solutions for precise positioning and spatial mapping technologies",
+    ],
+    logo: "/logos/INML.png",
+  },
+  {
     company: "Pason Systems",
     role: "Software Engineering Intern",
     duration: "May 2025 – Present",

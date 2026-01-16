@@ -17,6 +17,8 @@ export function ContactSection() {
     email: "",
     message: "",
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle")
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,10 +43,36 @@ export function ContactSection() {
     }
   }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
+    setIsSubmitting(true)
+    setSubmitStatus("idle")
+
+    const form = new FormData()
+    form.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "")
+    form.append("name", formData.name)
+    form.append("email", formData.email)
+    form.append("message", formData.message)
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: form,
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setSubmitStatus("success")
+        setFormData({ name: "", email: "", message: "" })
+      } else {
+        setSubmitStatus("error")
+      }
+    } catch {
+      setSubmitStatus("error")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -66,7 +94,7 @@ export function ContactSection() {
           <div className={`space-y-6 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center">
-                <Mail className="h-5 w-5 text-blue-400" />
+                <Mail className="h-5 w-5 text-[#b8860b]" />
               </div>
               <div>
                 <p className="text-sm text-gray-400 font-sans">Email</p>
@@ -78,7 +106,7 @@ export function ContactSection() {
 
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center">
-                <Linkedin className="h-5 w-5 text-blue-400" />
+                <Linkedin className="h-5 w-5 text-[#b8860b]" />
               </div>
               <div>
                 <p className="text-sm text-gray-400 font-sans">LinkedIn</p>
@@ -95,7 +123,7 @@ export function ContactSection() {
 
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center">
-                <Github className="h-5 w-5 text-blue-400" />
+                <Github className="h-5 w-5 text-[#b8860b]" />
               </div>
               <div>
                 <p className="text-sm text-gray-400 font-sans">GitHub</p>
@@ -112,7 +140,7 @@ export function ContactSection() {
 
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center">
-                <Phone className="h-5 w-5 text-blue-400" />
+                <Phone className="h-5 w-5 text-[#b8860b]" />
               </div>
               <div>
                 <p className="text-sm text-gray-400 font-sans">Phone</p>
@@ -133,7 +161,7 @@ export function ContactSection() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
-                className="bg-slate-900 border-blue-800 text-white placeholder:text-gray-400"
+                className="bg-slate-900 border-[#b8860b] text-white placeholder:text-gray-400"
               />
             </div>
 
@@ -146,7 +174,7 @@ export function ContactSection() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 required
-                className="bg-slate-900 border-blue-800 text-white placeholder:text-gray-400"
+                className="bg-slate-900 border-[#b8860b] text-white placeholder:text-gray-400"
               />
             </div>
 
@@ -159,13 +187,24 @@ export function ContactSection() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 required
-                className="bg-slate-900 border-blue-800 text-white placeholder:text-gray-400"
+                className="bg-slate-900 border-[#b8860b] text-white placeholder:text-gray-400"
               />
             </div>
 
-            <Button type="submit" className="w-full bg-white text-blue-950 hover:bg-gray-200">
-              Send Message
+            <Button
+              type="submit"
+              className="w-full bg-[#b8860b] text-white hover:bg-[#9a7309]"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
             </Button>
+
+            {submitStatus === "success" && (
+              <p className="text-green-400 text-center font-sans">Message sent successfully! I&apos;ll get back to you soon.</p>
+            )}
+            {submitStatus === "error" && (
+              <p className="text-red-400 text-center font-sans">Something went wrong. Please try again.</p>
+            )}
           </form>
         </div>
       </div>

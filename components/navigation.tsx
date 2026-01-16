@@ -33,7 +33,7 @@ export function Navigation() {
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-foreground">
+        <Link href="/" className="text-3xl font-bold text-foreground font-(family-name:--font-cormorant)">
           CM
         </Link>
 
@@ -41,7 +41,7 @@ export function Navigation() {
         <ul className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <li key={item.href}>
-              <Link href={item.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <Link href={item.href} className="text-base text-white hover:text-gray-300 transition-colors uppercase font-(family-name:--font-cormorant)">
                 {item.label}
               </Link>
             </li>
@@ -67,7 +67,7 @@ export function Navigation() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-base text-white hover:text-gray-300 transition-colors uppercase font-(family-name:--font-cormorant)"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
