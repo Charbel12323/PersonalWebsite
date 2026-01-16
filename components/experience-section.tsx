@@ -15,7 +15,6 @@ const experiences = [
       "Developing machine learning algorithms to enhance autonomous navigation and mapping systems",
       "Working on scalable and efficient solutions for precise positioning and spatial mapping technologies",
     ],
-    logo: "/logos/INML.png",
   },
   {
     company: "Pason Systems",
