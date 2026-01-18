@@ -66,7 +66,7 @@ export function ProjectSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentProject((prev) => (prev + 1) % projects.length)
-    }, 5000)
+    }, 30000)
 
     return () => clearInterval(timer)
   }, [])
@@ -129,10 +129,6 @@ export function ProjectSection() {
                 ))}
               </div>
 
-              <Button className="gap-2 bg-[#b8860b] text-white hover:bg-[#9a7309]">
-                <ExternalLink className="h-4 w-4" />
-                View Project
-              </Button>
             </div>
           </div>
 
