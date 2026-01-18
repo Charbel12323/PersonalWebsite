@@ -22,7 +22,7 @@ const projects = [
   },
   {
     icon: Activity,
-    image: "/logos/VQ.png",
+    image: "/logos/Vqq.png",
     title: "Virtual Quake",
     subtitle: "Physics-Based Earthquake Simulation Engine",
     description:

@@ -1,6 +1,5 @@
 "use client"
 
-import { Badge } from "@/components/ui/badge"
 import { useEffect, useRef, useState } from "react"
 
 const skillCategories = [
@@ -29,15 +28,18 @@ const skillCategories = [
 ]
 
 export function SkillsSection() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [visibleCategories, setVisibleCategories] = useState<Set<number>>(new Set())
+  const [headerVisible, setHeaderVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
+  const categoryRefs = useRef<(HTMLDivElement | null)[]>([])
 
+  // Observer for header
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(true)
+            setHeaderVisible(true)
           }
         })
       },
@@ -55,25 +57,70 @@ export function SkillsSection() {
     }
   }, [])
 
+  // Observer for individual categories
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = categoryRefs.current.indexOf(entry.target as HTMLDivElement)
+            if (index !== -1) {
+              setVisibleCategories((prev) => new Set([...prev, index]))
+            }
+          }
+        })
+      },
+      { threshold: 0.3, rootMargin: "0px 0px -30px 0px" }
+    )
+
+    categoryRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref)
+    })
+
+    return () => {
+      categoryRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref)
+      })
+    }
+  }, [])
+
   return (
     <section ref={sectionRef} id="skills" className="py-24 px-6 bg-[#fcfcfb]">
-      <div className="max-w-6xl mx-auto">
-        <div className="mb-12">
-          <h2 className={`text-4xl md:text-5xl text-slate-900 mb-3 font-(family-name:--font-cormorant) transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className="max-w-4xl mx-auto">
+        <div className="mb-16">
+          <h2 className={`text-4xl md:text-5xl text-slate-900 mb-3 font-(family-name:--font-cormorant) transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Skills
           </h2>
           <div className="w-16 h-1 bg-[#b8860b]"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, index) => (
-            <div key={category.title} className={`bg-white rounded-3xl p-8 border border-amber-900/20 shadow-sm hover:shadow-md transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: `${index * 100 + 100}ms` }}>
-              <h3 className="text-sm font-semibold text-stone-700 mb-6 uppercase tracking-wider font-(family-name:--font-cormorant)">{category.title}</h3>
+        <div className="space-y-12">
+          {skillCategories.map((category, categoryIndex) => (
+            <div
+              key={category.title}
+              ref={(el) => { categoryRefs.current[categoryIndex] = el }}
+              className={`transition-all duration-700 ${visibleCategories.has(categoryIndex) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            >
+              {/* Category header */}
+              <div className="flex items-center gap-4 mb-6">
+                <h3 className="text-sm font-semibold text-[#b8860b] uppercase tracking-widest font-sans">
+                  {category.title}
+                </h3>
+                <div className="flex-1 h-px bg-[#b8860b]/20"></div>
+              </div>
+
+              {/* Skills grid */}
               <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill) => (
-                  <Badge key={skill} className="text-sm bg-[#b8860b] text-white hover:bg-[#a0750a] border border-amber-900/10 rounded-full px-4 py-2 font-sans">
+                {category.skills.map((skill, skillIndex) => (
+                  <span
+                    key={skill}
+                    className="px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-gray-200 rounded-lg hover:border-[#b8860b]/50 hover:text-[#b8860b] transition-all duration-300 font-sans"
+                    style={{
+                      transitionDelay: visibleCategories.has(categoryIndex) ? `${skillIndex * 30}ms` : '0ms'
+                    }}
+                  >
                     {skill}
-                  </Badge>
+                  </span>
                 ))}
               </div>
             </div>
