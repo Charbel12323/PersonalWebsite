@@ -40,18 +40,20 @@ export function AboutSection() {
           <div className="w-16 h-1 bg-[#b8860b]"></div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <div className="mb-12">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+          {/* Bio text - shows first on mobile, first on desktop (left column) */}
+          <div className={`order-1 md:order-1 transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <div className="mb-8 md:mb-12">
               <p className="text-stone-800 mb-6 leading-relaxed text-lg font-sans">
-                I&apos;m a third-year Software Engineering student at the University of Calgary on the co-op program. I&apos;m passionate about full-stack web development and building scalable systems that solve real problems.
+                I&apos;m a fourth-year Software Engineering student at the University of Calgary on the co-op program. I&apos;m passionate about full-stack web development and building scalable systems that solve real problems.
               </p>
-              <p className="text-stone-800 mb-8 leading-relaxed text-lg font-sans">
+              <p className="text-stone-800 leading-relaxed text-lg font-sans">
                 Currently, I&apos;m working as a Software Engineering Intern at Pason Systems and I&apos;m very excited to start a new position at the Intelligent Navigation and Mapping Lab as a ML Engineering Intern, working on autonomous vehicle navigation systems.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-amber-900/20">
+            {/* Contact info - hidden on mobile, shown on desktop */}
+            <div className="hidden md:grid grid-cols-3 gap-8 pt-8 border-t border-amber-900/20">
               <div>
                 <p className="text-xs font-semibold text-stone-700 mb-2 uppercase tracking-wider font-(family-name:--font-cormorant)">Email</p>
                 <a href="mailto:charbel.maroun@ucalgary.ca" className="text-slate-900 hover:text-amber-900 transition-colors text-sm font-sans whitespace-nowrap">
@@ -73,13 +75,14 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className={`relative h-80 md:h-96 rounded-2xl bg-white border-2 border-amber-200 flex items-center justify-center overflow-visible transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+          {/* Image - shows second on mobile, second on desktop (right column) */}
+          <div className={`order-2 md:order-2 relative h-80 md:h-96 rounded-2xl bg-white border-2 border-amber-200 flex items-center justify-center overflow-visible transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <div className="w-full h-full overflow-hidden rounded-2xl">
               <Image src="/logos/GenRepAI.jpg" alt="About Me" width={400} height={400} className="object-cover w-full h-full" />
             </div>
 
             {/* Hand-drawn annotation */}
-            <div className={`absolute right-1/3 bottom-12 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`absolute left-[60%] -translate-x-1/2 bottom-4 md:translate-x-0 md:left-auto md:right-[30%] lg:right-1/3 md:bottom-12 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
               {/* Animated circle */}
               <svg
                 className="w-14 h-14"
@@ -143,13 +146,36 @@ export function AboutSection() {
                 />
               </svg>
 
-              {/* "me" label */}
+                {/* "me" label */}
               <span
                 className="absolute top-24 left-0 text-[#b8860b] text-xl font-semibold italic"
                 style={{ fontFamily: 'cursive' }}
               >
-                Guess who it is!
+              Me!
               </span>
+
+            </div>
+          </div>
+
+          {/* Contact info - shown on mobile only, third in order */}
+          <div className={`order-3 md:hidden grid grid-cols-1 gap-8 pt-8 mt-4 border-t border-amber-900/20 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div>
+              <p className="text-xs font-semibold text-stone-700 mb-2 uppercase tracking-wider font-(family-name:--font-cormorant)">Email</p>
+              <a href="mailto:charbel.maroun@ucalgary.ca" className="text-slate-900 hover:text-amber-900 transition-colors text-sm font-sans whitespace-nowrap">
+                mcharbel439@gmail.com
+              </a>
+            </div>
+
+            <div>
+              <p className="text-xs font-semibold text-stone-700 mb-2 uppercase tracking-wider font-(family-name:--font-cormorant)">Phone</p>
+              <a href="tel:+18254880972" className="text-slate-900 hover:text-amber-900 transition-colors text-base font-sans">
+                +1 (825) 488-0972
+              </a>
+            </div>
+
+            <div>
+              <p className="text-xs font-semibold text-stone-700 mb-2 uppercase tracking-wider font-(family-name:--font-cormorant)">Location</p>
+              <p className="text-slate-900 text-base font-sans">Calgary, Alberta</p>
             </div>
           </div>
         </div>

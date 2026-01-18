@@ -4,10 +4,12 @@ import { ExternalLink, Laptop, Brain, Activity, ChevronLeft, ChevronRight } from
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 
 const projects = [
   {
     icon: Brain,
+    image: null,
     title: "Jira Automation Engine",
     subtitle: "Agentic AI System for Workflow Automation",
     description:
@@ -21,6 +23,7 @@ const projects = [
   },
   {
     icon: Activity,
+    image: "/logos/VirtualQuake.png",
     title: "Virtual Quake",
     subtitle: "Physics-Based Earthquake Simulation Engine",
     description:
@@ -99,7 +102,13 @@ export function ProjectSection() {
               key={`icon-${currentProject}`}
               className="h-64 md:h-80 rounded-2xl border-2 border-amber-300 bg-white flex items-center justify-center animate-in fade-in slide-in-from-left duration-500"
             >
-              <Icon className="h-32 w-32 text-amber-600" />
+              {project.image ? (
+                <div className="relative w-full h-full">
+                  <Image src={project.image} alt={project.title} fill className="object-cover rounded-2xl" />
+                </div>
+              ) : (
+                <Icon className="h-32 w-32 text-amber-600" />
+              )}
             </div>
 
             <div
