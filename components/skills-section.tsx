@@ -14,16 +14,15 @@ const skillCategories = [
       "React",
       "Node.js",
       "Express",
+      "Spring Boot",
       "Flask",
-      "PyTorch",
-      "LangChain",
-      "Kafka",
-      "Tailwind CSS",
+      "FastAPI",
+      "LangGraph",
     ],
   },
   {
-    title: "Developer Tools",
-    skills: ["AWS", "Azure", "Docker", "Kubernetes", "Git", "GitHub Actions", "PostgreSQL", "MongoDB", "Redis", "Splunk", "Linux"],
+    title: "Developer Tools & Infrastructure",
+    skills: ["Git", "AWS", "Docker", "Jenkins", "Kafka", "Redis", "WebSockets", "Linux/Unix", "DynamoDB", "PostgreSQL"],
   },
 ]
 
