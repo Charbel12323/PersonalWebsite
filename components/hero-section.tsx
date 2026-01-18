@@ -97,14 +97,24 @@ export function HeroSection() {
 
           {/* Right side - Profile Image */}
           <div className={`flex items-center justify-center transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-            <div className="w-[20rem] h-[28rem] rounded-3xl border-4 border-[#b8860b] overflow-hidden bg-gray-300">
-              <Image
-                src="/logos/CEO.png"
-                alt="Charbel Maroun"
-                width={600}
-                height={600}
-                className="object-contain w-full h-full scale-105"
-              />
+            <div className="relative">
+              {/* Decorative background elements */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#b8860b]/20 to-[#b8860b]/5 rounded-full blur-2xl"></div>
+              <div className="absolute -inset-1 bg-gradient-to-br from-[#b8860b] to-[#d4a017] rounded-full opacity-75"></div>
+
+              {/* Main image container */}
+              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#0a1628] bg-[#f5f5f5]">
+                <Image
+                  src="/logos/CEO.png"
+                  alt="Charbel Maroun"
+                  width={600}
+                  height={600}
+                  priority
+                  quality={85}
+                  className="object-contain w-full h-full scale-110"
+                  style={{ objectPosition: 'center 45%' }}
+                />
+              </div>
             </div>
           </div>
         </div>

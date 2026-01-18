@@ -2,14 +2,13 @@
 
 import { ExternalLink, Laptop, Brain, Activity, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useCallback, useMemo } from "react"
 import Image from "next/image"
 
 const projects = [
   {
     icon: Brain,
-    image: null,
+    image: "/logos/JiraAutomationEnginee.png",
     title: "Jira Automation Engine",
     subtitle: "Agentic AI System for Workflow Automation",
     description:
@@ -23,7 +22,7 @@ const projects = [
   },
   {
     icon: Activity,
-    image: "/logos/VirtualQuake.png",
+    image: "/logos/VirtualQuakeee.png",
     title: "Virtual Quake",
     subtitle: "Physics-Based Earthquake Simulation Engine",
     description:
@@ -40,7 +39,18 @@ const projects = [
 export function ProjectSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [currentProject, setCurrentProject] = useState(0)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
+
+  // Check for reduced motion preference
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mediaQuery.matches)
+
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches)
+    mediaQuery.addEventListener('change', handler)
+    return () => mediaQuery.removeEventListener('change', handler)
+  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,24 +75,26 @@ export function ProjectSection() {
     }
   }, [])
 
-  // Auto-play carousel every 5 seconds
+  // Auto-play carousel every 30 seconds (disabled if user prefers reduced motion)
   useEffect(() => {
+    if (prefersReducedMotion) return
+
     const timer = setInterval(() => {
       setCurrentProject((prev) => (prev + 1) % projects.length)
     }, 30000)
 
     return () => clearInterval(timer)
+  }, [prefersReducedMotion])
+
+  const nextProject = useCallback(() => {
+    setCurrentProject((prev) => (prev + 1) % projects.length)
   }, [])
 
-  const nextProject = () => {
-    setCurrentProject((prev) => (prev + 1) % projects.length)
-  }
-
-  const prevProject = () => {
+  const prevProject = useCallback(() => {
     setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length)
-  }
+  }, [])
 
-  const project = projects[currentProject]
+  const project = useMemo(() => projects[currentProject], [currentProject])
   const Icon = project.icon
 
   return (
@@ -104,7 +116,14 @@ export function ProjectSection() {
             >
               {project.image ? (
                 <div className="relative w-full h-full">
-                  <Image src={project.image} alt={project.title} fill className="object-cover rounded-2xl" />
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    quality={85}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover rounded-2xl"
+                  />
                 </div>
               ) : (
                 <Icon className="h-32 w-32 text-amber-600" />
@@ -130,11 +149,14 @@ export function ProjectSection() {
                 ))}
               </ul>
 
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-3 mb-6">
                 {project.techStack.map((tech) => (
-                  <Badge key={tech} className="text-sm bg-amber-200 text-slate-900 hover:bg-amber-300 border-amber-300 font-sans">
+                  <span
+                    key={tech}
+                    className="px-4 py-2 text-sm font-medium bg-linear-to-r from-[#b8860b] to-[#d4a017] text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 font-sans"
+                  >
                     {tech}
-                  </Badge>
+                  </span>
                 ))}
               </div>
 
