@@ -89,6 +89,33 @@ export function AboutSection() {
                 viewBox="0 0 60 60"
                 style={{ transform: 'rotate(-10deg)' }}
               >
+                <style>
+                  {`
+                    @keyframes drawCircle {
+                      0%, 100% { stroke-dashoffset: 120; }
+                      40%, 60% { stroke-dashoffset: 0; }
+                    }
+                    @keyframes drawArrow {
+                      0%, 20% { stroke-dashoffset: 50; }
+                      50%, 70% { stroke-dashoffset: 0; }
+                      100% { stroke-dashoffset: 50; }
+                    }
+                    @keyframes fadeArrowHead {
+                      0%, 20% { opacity: 0; }
+                      50%, 70% { opacity: 1; }
+                      100% { opacity: 0; }
+                    }
+                    .animate-circle {
+                      animation: drawCircle 3s ease-in-out infinite;
+                    }
+                    .animate-arrow {
+                      animation: drawArrow 3s ease-in-out infinite;
+                    }
+                    .animate-arrow-head {
+                      animation: fadeArrowHead 3s ease-in-out infinite;
+                    }
+                  `}
+                </style>
                 <ellipse
                   cx="30"
                   cy="30"
@@ -99,9 +126,9 @@ export function AboutSection() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeDasharray="120"
-                  strokeDashoffset={isVisible ? "0" : "120"}
+                  className={isVisible ? "animate-circle" : ""}
                   style={{
-                    transition: 'stroke-dashoffset 1.5s ease-out 0.8s',
+                    strokeDashoffset: isVisible ? undefined : 120,
                     filter: 'url(#sketch)'
                   }}
                 />
@@ -125,9 +152,9 @@ export function AboutSection() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeDasharray="50"
-                  strokeDashoffset={isVisible ? "0" : "50"}
+                  className={isVisible ? "animate-arrow" : ""}
                   style={{
-                    transition: 'stroke-dashoffset 1s ease-out 1.2s',
+                    strokeDashoffset: isVisible ? undefined : 50,
                     filter: 'url(#sketch)'
                   }}
                 />
@@ -139,9 +166,9 @@ export function AboutSection() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  opacity={isVisible ? 1 : 0}
+                  className={isVisible ? "animate-arrow-head" : ""}
                   style={{
-                    transition: 'opacity 0.3s ease-out 2s'
+                    opacity: isVisible ? undefined : 0
                   }}
                 />
               </svg>

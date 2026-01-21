@@ -13,7 +13,7 @@ const projects = [
     subtitle: "Agentic AI System for Workflow Automation",
     description:
       "Built an agentic AI system that automated Jira workflows and was pitched to and adopted by Pason Systems. Integrated retrieval-augmented search across 10K+ documents, improving accuracy from 65% to 80%. Orchestrated a multi-step pipeline with tool orchestration and self-verification, reducing hallucination from 20% to 5%.",
-    techStack: ["Python", "Next.js", "LangChain", "LangGraph", "Pinecone", "MySQL"],
+    techStack: ["Next.js", "TypeScript", "PostgreSQL", "DynamoDB", "Pinecone", "Python", "LangGraph", "Docker", "Redis"],
     highlights: [
       "Pitched to and adopted by Pason Systems",
       "Improved RAG accuracy from 65% to 80% across 10K+ documents",
@@ -27,7 +27,7 @@ const projects = [
     subtitle: "Physics-Based Earthquake Simulation Engine",
     description:
       "Built a physics-based earthquake simulation engine supporting 80+ structural scenarios, enabling large-scale stress testing. Parallelized simulation workloads across a cloud cluster, reducing per-scenario runtime from 20 minutes to 6 minutes.",
-    techStack: ["JavaScript", "Python", "Next.js", "AWS", "PyTorch", "XGBoost"],
+    techStack: ["Python", "JavaScript", "Next.js", "AWS", "FastAPI", "Redis", "MongoDB", "AWS Lambda"],
     highlights: [
       "Supports 80+ structural scenarios for comprehensive testing",
       "Reduced runtime from 20 minutes to 6 minutes via cloud parallelization",

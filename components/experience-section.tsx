@@ -1,15 +1,17 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 
 const experiences = [
   {
     company: "Intelligent Navigation and Mapping Lab",
-    role: "ML Engineering Intern",
+    role: "ML Intern",
     duration: "Jan 2026 – May 2026",
     location: "Calgary, AB",
+    logo: null,
     description: [
-      "Incoming ML Engineering intern working on autonomous driving and navigation in partnership with Hexagon Technologies.",
+      "Incoming ML intern working on autonomous driving and navigation in partnership with Hexagon Technologies.",
     ],
   },
   {
@@ -17,6 +19,7 @@ const experiences = [
     role: "Software Engineering Intern",
     duration: "May 2025 – May 2026",
     location: "Calgary, AB",
+    logo: "/logos/pason.png",
     description: [
       "Developed monitoring automation for over 1,000 Linux workstations and migrated legacy CI/CD pipelines to AWS-based environments.",
       "Improved backend services through API enhancements and automated testing, resulting in increased scalability, stronger security, and a 65% reduction in response times.",
@@ -28,6 +31,7 @@ const experiences = [
     role: "Backend Engineering Intern",
     duration: "Jan 2025 – May 2025",
     location: "Calgary, AB",
+    logo: "/logos/HXI.png",
     description: [
       "Designed and deployed a scalable, load-balanced backend on AWS using distributed microservices to support real-time telemetry ingestion, handling 7,000 req/sec.",
       "Optimized DynamoDB data models and partitioning to improve throughput and reduce latency from ~500 ms to under 100 ms while handling thousands of requests per second.",
@@ -39,6 +43,7 @@ const experiences = [
     role: "Founding Engineer",
     duration: "Jul 2024 – Feb 2025",
     location: "Calgary, AB",
+    logo: "/logos/GenRepLogo.png",
     description: [
       "Led a team of five engineers to architect and deliver a scalable full-stack web and cloud platform for real-time meeting automation.",
       "Designed and implemented REST APIs and backend services using Node.js and Express, supporting peak traffic of 10K requests per day; achieved full API test coverage with Chai, reducing production bug reports by 70%.",
@@ -134,15 +139,28 @@ export function ExperienceSection() {
                     {/* Header */}
                     <div className="mb-4">
                       <div className="flex items-start justify-between gap-4 mb-1">
-                        <h3 className="text-xl font-semibold text-slate-900 font-(family-name:--font-cormorant)">
-                          {exp.role}
-                        </h3>
-                      </div>
-                      <p className="text-[#b8860b] font-medium font-sans">{exp.company}</p>
-                      <div className="flex items-center gap-2 mt-2 text-sm text-gray-500 font-sans">
-                        <span>{exp.duration}</span>
-                        <span className="text-gray-300">•</span>
-                        <span>{exp.location}</span>
+                        <div className="flex-1">
+                          <h3 className="text-xl font-semibold text-slate-900 font-(family-name:--font-cormorant)">
+                            {exp.role}
+                          </h3>
+                          <p className="text-[#b8860b] font-medium font-sans">{exp.company}</p>
+                          <div className="flex items-center gap-2 mt-2 text-sm text-gray-500 font-sans">
+                            <span>{exp.duration}</span>
+                            <span className="text-gray-300">•</span>
+                            <span>{exp.location}</span>
+                          </div>
+                        </div>
+                        {exp.logo && (
+                          <div className="shrink-0">
+                            <Image
+                              src={exp.logo}
+                              alt={`${exp.company} logo`}
+                              width={48}
+                              height={48}
+                              className="rounded-lg object-contain"
+                            />
+                          </div>
+                        )}
                       </div>
                     </div>
 
