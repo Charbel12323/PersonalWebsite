@@ -114,7 +114,7 @@ export function HeroSection() {
           {/* Download Button */}
           <div className={`pt-6 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <Button asChild className="gap-2 hover:scale-105 transition-transform bg-[#b8860b] text-white hover:bg-[#9a7309] text-sm px-6 py-5 uppercase tracking-wider rounded-full">
-              <a href="/CharbelOfficialResume.pdf" download>
+              <a href="/CharbelMaroun_Resume.pdf" download>
                 Download Resume
                 <Download className="h-4 w-4" />
               </a>
@@ -167,7 +167,7 @@ export function HeroSection() {
 
             <div className={`pt-4 transition-all duration-700 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <Button asChild className="gap-2 hover:scale-105 transition-transform bg-[#b8860b] text-white hover:bg-[#9a7309] text-lg px-8 py-6 uppercase tracking-wider">
-                <a href="/CharbelOfficialResume.pdf" download>
+                <a href="/CharbelMaroun_Resume.pdf" download>
                   <Download className="h-5 w-5" />
                   Download Resume
                 </a>
