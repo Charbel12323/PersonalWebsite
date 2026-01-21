@@ -19,7 +19,7 @@ const experiences = [
     role: "Software Engineering Intern",
     duration: "May 2025 – May 2026",
     location: "Calgary, AB",
-    logo: "/logos/pason.png",
+    logo: "/logos/Pason.png",
     description: [
       "Developed monitoring automation for over 1,000 Linux workstations and migrated legacy CI/CD pipelines to AWS-based environments.",
       "Improved backend services through API enhancements and automated testing, resulting in increased scalability, stronger security, and a 65% reduction in response times.",
