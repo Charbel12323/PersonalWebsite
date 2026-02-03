@@ -109,7 +109,7 @@ export function ProjectSection() {
 
         <div className="relative overflow-hidden">
           {/* Carousel Content */}
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid md:grid-cols-2 gap-8 items-start h-[600px] md:h-[420px]">
             <div
               key={`icon-${currentProject}`}
               className="h-64 md:h-80 rounded-2xl border-2 border-amber-300 bg-white flex items-center justify-center animate-in fade-in slide-in-from-left duration-500"
@@ -132,11 +132,11 @@ export function ProjectSection() {
 
             <div
               key={`content-${currentProject}`}
-              className="animate-in fade-in slide-in-from-right duration-500"
+              className="h-[320px] md:h-[420px] overflow-hidden animate-in fade-in slide-in-from-right duration-500"
             >
               <h3 className="text-3xl text-slate-900 mb-2 font-(family-name:--font-cormorant)">{project.title}</h3>
               <p className="text-amber-900 mb-4 font-semibold text-lg font-sans">{project.subtitle}</p>
-              <p className="text-stone-800 mb-6 leading-relaxed text-base font-sans">
+              <p className="text-stone-800 mb-6 leading-relaxed text-base font-sans line-clamp-4">
                 {project.description}
               </p>
 
