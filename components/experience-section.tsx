@@ -7,7 +7,7 @@ const experiences = [
   {
     company: "Intelligent Navigation and Mapping Lab",
     role: "ML Intern",
-    duration: "Jan 2026 – May 2026",
+    duration: "May 2026 – Aug 2026",
     location: "Calgary, AB",
     logo: null,
     description: [
@@ -21,9 +21,10 @@ const experiences = [
     location: "Calgary, AB",
     logo: "/logos/Pason.png",
     description: [
-      "Developed monitoring automation for over 1,000 Linux workstations and migrated legacy CI/CD pipelines to AWS-based environments.",
-      "Improved backend services through API enhancements and automated testing, resulting in increased scalability, stronger security, and a 65% reduction in response times.",
-      "Established reliable CI pipelines with integrated unit and integration testing to support consistent, high-quality releases.",
+      "Built Python and Java automation tools to reduce downtime by 45% across 1,000+ Linux systems",
+      "Engineered Splunk logging scripts, eliminating field tech visits and saving $100K/month",
+      "Migrated legacy CI/CD to AWS EC2 containers, cutting deployment time by 90%",
+      "Implemented integration/regression testing in CI pipelines, reducing post-deployment incidents by 98%",
     ],
   },
   {
@@ -33,21 +34,22 @@ const experiences = [
     location: "Calgary, AB",
     logo: "/logos/HXI.png",
     description: [
-      "Designed and deployed a scalable, load-balanced backend on AWS using distributed microservices to support real-time telemetry ingestion, handling 7,000 req/sec.",
-      "Optimized DynamoDB data models and partitioning to improve throughput and reduce latency from ~500 ms to under 100 ms while handling thousands of requests per second.",
-      "Introduced caching strategies for high-read access patterns, reducing database load and improving read latency for frequently accessed telemetry data.",
+      "Designed a scalable AWS backend for real-time telemetry ingestion, handling 7,000+ req/sec",
+      "Migrated to Kafka to buffer bursty telemetry, stabilizing peak-load latency by 70%",
+      "Optimized DynamoDB partitioning, reducing request latency from 500ms to 100ms",
+      "Introduced Redis caching, reducing database read traffic by 40%",
     ],
   },
   {
     company: "GenRep AI",
-    role: "Founding Engineer",
-    duration: "Jul 2024 – Feb 2025",
+    role: "Full Stack Developer",
+    duration: "May 2024 – Aug 2025",
     location: "Calgary, AB",
     logo: "/logos/GenRepLogo.png",
     description: [
-      "Led a team of five engineers to architect and deliver a scalable full-stack web and cloud platform for real-time meeting automation.",
-      "Designed and implemented REST APIs and backend services using Node.js and Express, supporting peak traffic of 10K requests per day; achieved full API test coverage with Chai, reducing production bug reports by 70%.",
-      "Built end-to-end features spanning frontend interfaces and backend services, including real-time transcription and a retrieval-augmented generation (RAG) pipeline that improved action-item extraction accuracy from 60% to 90%.",
+      "Led a team of five engineers to build a full-stack meeting automation platform",
+      "Enhanced REST APIs with pagination, retry mechanisms, caching, and JWT auth, boosting performance by 65%",
+      "Architected SQL/NoSQL schemas with AWS RDS/DynamoDB, reducing write latency by 60%",
     ],
   },
 ]
