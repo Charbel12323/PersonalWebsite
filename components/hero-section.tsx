@@ -114,7 +114,7 @@ export function HeroSection() {
           {/* Download Button */}
           <div className={`pt-6 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <Button asChild className="gap-2 hover:scale-105 transition-transform bg-[#b8860b] text-white hover:bg-[#9a7309] text-sm px-6 py-5 uppercase tracking-wider rounded-full">
-              <a href="/Charbel_Resume.pdf" download>
+              <a href="/logos/CharbelM_Resume.pdf" download>
                 Download Resume
                 <Download className="h-4 w-4" />
               </a>
@@ -141,9 +141,10 @@ export function HeroSection() {
                 href="https://ieeexplore.ieee.org/document/11236194"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`block text-gray-400 text-base font-sans hover:text-[#b8860b] transition-all duration-700 delay-350 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`block text-base font-sans transition-all duration-700 delay-350 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               >
-                IEEE Publication: Digital Twin for Pipeline Leak Simulation
+                <span className="text-[#b8860b] font-semibold">IEEE Publication:</span>
+                <span className="text-gray-400 hover:text-[#d4a017] transition-colors"> Digital Twin for Pipeline Leak Simulation</span>
               </a>
             </div>
 
@@ -167,7 +168,7 @@ export function HeroSection() {
 
             <div className={`pt-4 transition-all duration-700 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <Button asChild className="gap-2 hover:scale-105 transition-transform bg-[#b8860b] text-white hover:bg-[#9a7309] text-lg px-8 py-6 uppercase tracking-wider">
-                <a href="/Charbel_Resume.pdf" download>
+                <a href="/logos/CharbelM_Resume.pdf" download>
                   <Download className="h-5 w-5" />
                   Download Resume
                 </a>

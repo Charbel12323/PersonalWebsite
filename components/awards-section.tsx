@@ -19,9 +19,9 @@ const awards = [
     category: "Entrepreneurship",
   },
   {
-    title: "President, Space Rover Club",
-    description: "Led multi-division engineering team to third place at 2024 Rover Competition",
-    category: "Leadership",
+    title: "3× Hackathon Winner",
+    description: "Won multiple competitive hackathons: Hack The Change YYC, Code the Change, and BioHacks",
+    category: "Competition",
   },
 ]
 
