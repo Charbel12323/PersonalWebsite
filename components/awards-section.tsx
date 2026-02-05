@@ -18,11 +18,6 @@ const awards = [
     description: "GenRep AI accepted into competitive startup accelerator program",
     category: "Entrepreneurship",
   },
-  {
-    title: "3× Hackathon Winner",
-    description: "Won multiple competitive hackathons: Hack The Change YYC, Code the Change, and BioHacks",
-    category: "Competition",
-  },
 ]
 
 export function AwardsSection() {
