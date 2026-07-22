@@ -16,7 +16,7 @@ export function AboutSection() {
           }
         })
       },
-      { threshold: 0.2 }
+      { threshold: 0, rootMargin: "0px 0px -80px 0px" }
     )
 
     if (sectionRef.current) {
@@ -31,7 +31,7 @@ export function AboutSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="about" className="py-24 px-6 bg-[#f5f3f0]">
+    <section ref={sectionRef} id="about" className="py-24 px-6 bg-[#f8f3ea]">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
           <h2 className={`text-4xl md:text-5xl text-slate-900 mb-3 font-(family-name:--font-cormorant) transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -53,10 +53,10 @@ export function AboutSection() {
             </div>
 
             {/* Contact info - hidden on mobile, shown on desktop */}
-            <div className="hidden md:grid grid-cols-3 gap-8 pt-8 border-t border-amber-900/20">
-              <div>
+            <div className="hidden md:grid grid-cols-[1.4fr_1.1fr_1fr] gap-6 pt-8 border-t border-amber-900/20">
+              <div className="min-w-0">
                 <p className="text-xs font-semibold text-stone-700 mb-2 uppercase tracking-wider font-(family-name:--font-cormorant)">Email</p>
-                <a href="mailto:charbel.maroun@ucalgary.ca" className="text-slate-900 hover:text-amber-900 transition-colors text-sm font-sans whitespace-nowrap">
+                <a href="mailto:mcharbel439@gmail.com" className="text-slate-900 hover:text-amber-900 transition-colors text-sm font-sans break-all">
                   mcharbel439@gmail.com
                 </a>
               </div>
@@ -76,18 +76,19 @@ export function AboutSection() {
           </div>
 
           {/* Image - shows second on mobile, second on desktop (right column) */}
-          <div className={`order-2 md:order-2 relative h-80 md:h-96 rounded-2xl bg-white border-2 border-amber-200 flex items-center justify-center overflow-visible transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <div className="w-full h-full overflow-hidden rounded-2xl">
-              <Image src="/logos/GenRepAI.jpg" alt="About Me" width={400} height={400} className="object-cover w-full h-full" />
+          <div className={`order-2 md:order-2 relative rounded-2xl bg-white border-2 border-amber-200 overflow-visible transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            {/* 16:9 matches the photo's natural ratio so the annotation stays anchored to my head at every screen size */}
+            <div className="aspect-video w-full overflow-hidden rounded-2xl">
+              <Image src="/logos/GenRepAI.jpg" alt="Presenting GenRep AI's system architecture" width={800} height={450} className="object-cover w-full h-full" />
             </div>
 
             {/* Hand-drawn annotation */}
-            <div className={`absolute left-[60%] -translate-x-1/2 bottom-4 md:translate-x-0 md:left-auto md:right-[30%] lg:right-1/3 md:bottom-12 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-              {/* Animated circle */}
+            <div className={`absolute inset-0 pointer-events-none transition-opacity duration-1000 delay-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+              {/* Animated circle around my head */}
               <svg
-                className="w-14 h-14"
+                className="absolute w-10 h-10 md:w-14 md:h-14"
+                style={{ left: '60%', top: '78%', transform: 'translate(-50%, -50%) rotate(-10deg)' }}
                 viewBox="0 0 60 60"
-                style={{ transform: 'rotate(-10deg)' }}
               >
                 <style>
                   {`
@@ -140,13 +141,14 @@ export function AboutSection() {
                 </defs>
               </svg>
 
-              {/* Animated curved arrow pointing up */}
+              {/* Animated curved arrow pointing down at the circle */}
               <svg
-                className="absolute top-14 left-2 w-12 h-10"
-                viewBox="0 0 50 40"
+                className="absolute w-10 h-14 md:w-12 md:h-16"
+                style={{ left: '60%', top: '48%' }}
+                viewBox="0 0 50 70"
               >
                 <path
-                  d="M 20 35 Q 22 25, 25 15 Q 28 8, 25 5"
+                  d="M 38 10 Q 42 30, 26 52"
                   fill="none"
                   stroke="#b8860b"
                   strokeWidth="2"
@@ -160,7 +162,7 @@ export function AboutSection() {
                 />
                 {/* Arrow head */}
                 <path
-                  d="M 20 10 L 25 3 L 30 10"
+                  d="M 20 44 L 26 54 L 34 48"
                   fill="none"
                   stroke="#b8860b"
                   strokeWidth="2"
@@ -173,10 +175,10 @@ export function AboutSection() {
                 />
               </svg>
 
-                {/* "me" label */}
+              {/* "me" label */}
               <span
-                className="absolute top-24 left-0 text-[#b8860b] text-xl font-semibold italic"
-                style={{ fontFamily: 'cursive' }}
+                className="absolute text-[#b8860b] text-lg md:text-xl font-semibold italic"
+                style={{ left: '66%', top: '34%', fontFamily: 'cursive' }}
               >
               Me!
               </span>
@@ -188,7 +190,7 @@ export function AboutSection() {
           <div className={`order-3 md:hidden grid grid-cols-1 gap-8 pt-8 mt-4 border-t border-amber-900/20 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div>
               <p className="text-xs font-semibold text-stone-700 mb-2 uppercase tracking-wider font-(family-name:--font-cormorant)">Email</p>
-              <a href="mailto:charbel.maroun@ucalgary.ca" className="text-slate-900 hover:text-amber-900 transition-colors text-sm font-sans whitespace-nowrap">
+              <a href="mailto:mcharbel439@gmail.com" className="text-slate-900 hover:text-amber-900 transition-colors text-sm font-sans break-all">
                 mcharbel439@gmail.com
               </a>
             </div>

@@ -29,7 +29,7 @@ export function ContactSection() {
           }
         })
       },
-      { threshold: 0.2 }
+      { threshold: 0, rootMargin: "0px 0px -80px 0px" }
     )
 
     if (sectionRef.current) {
@@ -76,13 +76,13 @@ export function ContactSection() {
   }
 
   return (
-    <section ref={sectionRef} id="contact" className="py-24 px-6 bg-[#0a1628] text-white">
+    <section ref={sectionRef} id="contact" className="py-24 px-6 bg-[#102a43] text-white">
       <div className="max-w-6xl mx-auto">
         <div className="mb-4">
           <h2 className={`text-4xl md:text-5xl mb-3 font-(family-name:--font-cormorant) transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Get In Touch
           </h2>
-          <div className="w-16 h-1 bg-[#b8860b]"></div>
+          <div className="w-16 h-1 bg-[#d4a017]"></div>
         </div>
         <p className={`text-gray-300 mb-12 max-w-2xl text-lg font-sans transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat. Feel free
@@ -93,20 +93,20 @@ export function ContactSection() {
           {/* Contact Info */}
           <div className={`space-y-6 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center">
-                <Mail className="h-5 w-5 text-[#b8860b]" />
+              <div className="w-12 h-12 rounded-full bg-[#0b1d31] flex items-center justify-center">
+                <Mail className="h-5 w-5 text-[#d4a017]" />
               </div>
               <div>
                 <p className="text-sm text-gray-400 font-sans">Email</p>
-                <a href="mailto:charbel.maroun@ucalgary.ca" className="text-white hover:text-gray-200 transition-colors font-sans">
-                  charbel.maroun@ucalgary.ca
+                <a href="mailto:mcharbel439@gmail.com" className="text-white hover:text-gray-200 transition-colors font-sans break-all">
+                  mcharbel439@gmail.com
                 </a>
               </div>
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center">
-                <Linkedin className="h-5 w-5 text-[#b8860b]" />
+              <div className="w-12 h-12 rounded-full bg-[#0b1d31] flex items-center justify-center">
+                <Linkedin className="h-5 w-5 text-[#d4a017]" />
               </div>
               <div>
                 <p className="text-sm text-gray-400 font-sans">LinkedIn</p>
@@ -122,8 +122,8 @@ export function ContactSection() {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center">
-                <Github className="h-5 w-5 text-[#b8860b]" />
+              <div className="w-12 h-12 rounded-full bg-[#0b1d31] flex items-center justify-center">
+                <Github className="h-5 w-5 text-[#d4a017]" />
               </div>
               <div>
                 <p className="text-sm text-gray-400 font-sans">GitHub</p>
@@ -139,8 +139,8 @@ export function ContactSection() {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center">
-                <Phone className="h-5 w-5 text-[#b8860b]" />
+              <div className="w-12 h-12 rounded-full bg-[#0b1d31] flex items-center justify-center">
+                <Phone className="h-5 w-5 text-[#d4a017]" />
               </div>
               <div>
                 <p className="text-sm text-gray-400 font-sans">Phone</p>
@@ -161,7 +161,7 @@ export function ContactSection() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
-                className="bg-slate-900 border-[#b8860b] text-white placeholder:text-gray-400"
+                className="bg-[#0b1d31] border-[#d4a017]/60 text-white placeholder:text-gray-400"
               />
             </div>
 
@@ -174,7 +174,7 @@ export function ContactSection() {
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 required
-                className="bg-slate-900 border-[#b8860b] text-white placeholder:text-gray-400"
+                className="bg-[#0b1d31] border-[#d4a017]/60 text-white placeholder:text-gray-400"
               />
             </div>
 
@@ -187,20 +187,20 @@ export function ContactSection() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 required
-                className="bg-slate-900 border-[#b8860b] text-white placeholder:text-gray-400"
+                className="bg-[#0b1d31] border-[#d4a017]/60 text-white placeholder:text-gray-400"
               />
             </div>
 
             <Button
               type="submit"
-              className="w-full bg-[#b8860b] text-white hover:bg-[#9a7309]"
+              className="w-full bg-[#8f6a08] text-white hover:bg-[#7a5a06]"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Sending..." : "Send Message"}
             </Button>
 
             {submitStatus === "success" && (
-              <p className="text-[#b8860b] text-center font-sans">I&apos;ll get back to you as soon as I can!</p>
+              <p className="text-[#d4a017] text-center font-sans">I&apos;ll get back to you as soon as I can!</p>
             )}
             {submitStatus === "error" && (
               <p className="text-red-400 text-center font-sans">Something went wrong. Please try again.</p>

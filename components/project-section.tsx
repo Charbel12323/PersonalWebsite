@@ -61,7 +61,7 @@ export function ProjectSection() {
           }
         })
       },
-      { threshold: 0.2 }
+      { threshold: 0, rootMargin: "0px 0px -80px 0px" }
     )
 
     if (sectionRef.current) {
@@ -98,7 +98,7 @@ export function ProjectSection() {
   const Icon = project.icon
 
   return (
-    <section ref={sectionRef} id="projects" className="py-24 px-6 bg-[#f5f3f0]">
+    <section ref={sectionRef} id="projects" className="py-24 px-6 bg-[#f8f3ea]">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
           <h2 className={`text-4xl md:text-5xl text-slate-900 mb-3 font-(family-name:--font-cormorant) transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -109,10 +109,10 @@ export function ProjectSection() {
 
         <div className="relative overflow-hidden">
           {/* Carousel Content */}
-          <div className="grid md:grid-cols-2 gap-8 items-start h-[600px] md:h-[420px]">
+          <div className="grid md:grid-cols-2 gap-8 items-start md:min-h-[420px]">
             <div
               key={`icon-${currentProject}`}
-              className="h-64 md:h-80 rounded-2xl border-2 border-amber-300 bg-white flex items-center justify-center animate-in fade-in slide-in-from-left duration-500"
+              className="h-64 md:h-80 rounded-2xl border-2 border-[#d4a017]/40 bg-white flex items-center justify-center animate-in fade-in slide-in-from-left duration-500"
             >
               {project.image ? (
                 <div className="relative w-full h-full">
@@ -132,7 +132,7 @@ export function ProjectSection() {
 
             <div
               key={`content-${currentProject}`}
-              className="h-[320px] md:h-[420px] overflow-hidden animate-in fade-in slide-in-from-right duration-500"
+              className="animate-in fade-in slide-in-from-right duration-500"
             >
               <h3 className="text-3xl text-slate-900 mb-2 font-(family-name:--font-cormorant)">{project.title}</h3>
               <p className="text-amber-900 mb-4 font-semibold text-lg font-sans">{project.subtitle}</p>
@@ -153,7 +153,7 @@ export function ProjectSection() {
                 {project.techStack.map((tech) => (
                   <span
                     key={tech}
-                    className="px-4 py-2 text-sm font-medium bg-linear-to-r from-[#b8860b] to-[#d4a017] text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 font-sans"
+                    className="px-4 py-2 text-sm font-medium bg-linear-to-r from-[#8f6a08] to-[#96700a] text-white rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 font-sans"
                   >
                     {tech}
                   </span>
@@ -167,7 +167,7 @@ export function ProjectSection() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={prevProject}
-              className="h-12 w-12 rounded-full bg-[#b8860b] hover:bg-[#9a7309] transition-colors duration-300 flex items-center justify-center"
+              className="h-12 w-12 rounded-full bg-[#8f6a08] hover:bg-[#7a5a06] transition-colors duration-300 flex items-center justify-center"
               aria-label="Previous project"
             >
               <ChevronLeft className="h-6 w-6 text-white" />
@@ -180,7 +180,7 @@ export function ProjectSection() {
                   key={index}
                   onClick={() => setCurrentProject(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
-                    index === currentProject ? "w-8 bg-[#b8860b]" : "w-2 bg-[#b8860b]/30"
+                    index === currentProject ? "w-8 bg-[#8f6a08]" : "w-2 bg-[#8f6a08]/30"
                   }`}
                   aria-label={`Go to project ${index + 1}`}
                 />
@@ -189,7 +189,7 @@ export function ProjectSection() {
 
             <button
               onClick={nextProject}
-              className="h-12 w-12 rounded-full bg-[#b8860b] hover:bg-[#9a7309] transition-colors duration-300 flex items-center justify-center"
+              className="h-12 w-12 rounded-full bg-[#8f6a08] hover:bg-[#7a5a06] transition-colors duration-300 flex items-center justify-center"
               aria-label="Next project"
             >
               <ChevronRight className="h-6 w-6 text-white" />

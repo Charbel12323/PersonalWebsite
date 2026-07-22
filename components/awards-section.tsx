@@ -36,7 +36,7 @@ export function AwardsSection() {
           }
         })
       },
-      { threshold: 0.2 }
+      { threshold: 0, rootMargin: "0px 0px -80px 0px" }
     )
 
     if (sectionRef.current) {
@@ -78,13 +78,13 @@ export function AwardsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="awards" className="py-20 px-6 bg-[#0a1628] text-white">
+    <section ref={sectionRef} id="awards" className="py-20 px-6 bg-[#102a43] text-white">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12">
           <h2 className={`text-4xl md:text-5xl mb-3 font-(family-name:--font-cormorant) transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             Awards & Honors
           </h2>
-          <div className="w-16 h-1 bg-[#b8860b]"></div>
+          <div className="w-16 h-1 bg-[#d4a017]"></div>
         </div>
 
         <div className="space-y-4">
@@ -94,15 +94,15 @@ export function AwardsSection() {
               ref={(el) => { cardRefs.current[index] = el }}
               className={`group transition-all duration-700 ${visibleCards.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
             >
-              <div className="flex items-start gap-6 py-5 border-b border-white/10 hover:border-[#b8860b]/40 transition-colors duration-300">
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-6 py-5 border-b border-white/10 hover:border-[#d4a017]/40 transition-colors duration-300">
                 {/* Category label */}
-                <span className="shrink-0 w-36 text-xs font-medium uppercase tracking-wider text-[#b8860b] pt-1 font-sans">
+                <span className="shrink-0 sm:w-36 text-xs font-medium uppercase tracking-wider text-[#d4a017] pt-1 font-sans">
                   {award.category}
                 </span>
 
                 {/* Content */}
                 <div className="flex-1">
-                  <h3 className="text-lg text-white font-(family-name:--font-cormorant) font-semibold mb-1 group-hover:text-[#d4a017] transition-colors duration-300">
+                  <h3 className="text-lg text-white font-(family-name:--font-cormorant) font-semibold mb-1 group-hover:text-[#e8b53a] transition-colors duration-300">
                     {award.title}
                   </h3>
                   <p className="text-gray-400 text-sm font-sans leading-relaxed">

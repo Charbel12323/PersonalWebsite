@@ -42,7 +42,7 @@ export function SkillsSection() {
           }
         })
       },
-      { threshold: 0.2 }
+      { threshold: 0, rootMargin: "0px 0px -80px 0px" }
     )
 
     if (sectionRef.current) {
@@ -84,7 +84,7 @@ export function SkillsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="skills" className="py-24 px-6 bg-[#fcfcfb]">
+    <section ref={sectionRef} id="skills" className="py-24 px-6 bg-[#fbf7ef]">
       <div className="max-w-4xl mx-auto">
         <div className="mb-16">
           <h2 className={`text-4xl md:text-5xl text-slate-900 mb-3 font-(family-name:--font-cormorant) transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -102,7 +102,7 @@ export function SkillsSection() {
             >
               {/* Category header */}
               <div className="flex items-center gap-4 mb-6">
-                <h3 className="text-sm font-semibold text-[#b8860b] uppercase tracking-widest font-sans">
+                <h3 className="text-sm font-semibold text-[#8f6a08] uppercase tracking-widest font-sans">
                   {category.title}
                 </h3>
                 <div className="flex-1 h-px bg-[#b8860b]/20"></div>
@@ -113,7 +113,7 @@ export function SkillsSection() {
                 {category.skills.map((skill, skillIndex) => (
                   <span
                     key={skill}
-                    className="px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-gray-200 rounded-lg hover:border-[#b8860b]/50 hover:text-[#b8860b] transition-all duration-300 font-sans"
+                    className="px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-gray-200 rounded-lg hover:border-[#b8860b]/50 hover:text-[#8f6a08] transition-all duration-300 font-sans"
                     style={{
                       transitionDelay: visibleCategories.has(categoryIndex) ? `${skillIndex * 30}ms` : '0ms'
                     }}

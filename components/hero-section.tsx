@@ -40,7 +40,7 @@ export function HeroSection() {
     <section
       ref={sectionRef}
       id="hero"
-      className="min-h-screen flex items-center justify-center relative px-6 pt-20 pb-8 bg-[#0a1628] text-white"
+      className="min-h-dvh flex items-center justify-center relative px-6 pt-20 pb-8 bg-[#102a43] text-white"
     >
       <div className="max-w-6xl w-full mx-auto">
         {/* Mobile Layout - Centered */}
@@ -48,9 +48,9 @@ export function HeroSection() {
           {/* Profile Image */}
           <div className={`mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             <div className="relative">
-              <div className="absolute -inset-2 bg-gradient-to-br from-[#b8860b]/30 to-[#b8860b]/10 rounded-full blur-xl"></div>
-              <div className="absolute -inset-1 bg-gradient-to-br from-[#b8860b] to-[#d4a017] rounded-full opacity-60"></div>
-              <div className="relative w-44 h-44 rounded-full overflow-hidden border-4 border-[#0a1628] bg-[#f5f5f5]">
+              <div className="absolute -inset-2 bg-gradient-to-br from-[#d4a017]/30 to-[#d4a017]/10 rounded-full blur-xl"></div>
+              <div className="absolute -inset-1 bg-gradient-to-br from-[#d4a017] to-[#e8b53a] rounded-full opacity-60"></div>
+              <div className="relative w-44 h-44 rounded-full overflow-hidden border-4 border-[#102a43] bg-[#f5f5f5]">
                 <Image
                   src="/logos/CEO.png"
                   alt="Charbel Maroun"
@@ -58,8 +58,8 @@ export function HeroSection() {
                   height={400}
                   priority
                   quality={85}
-                  className="object-contain w-full h-full scale-110"
-                  style={{ objectPosition: 'center 45%' }}
+                  className="object-cover w-full h-full"
+                  style={{ objectPosition: 'center 15%' }}
                 />
               </div>
             </div>
@@ -67,7 +67,7 @@ export function HeroSection() {
 
           {/* Content */}
           <div className={`space-y-4 transition-all duration-1000 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <p className="text-[#b8860b] text-sm font-medium font-sans tracking-widest uppercase">Hello, I&apos;m</p>
+            <p className="text-[#d4a017] text-sm font-medium font-sans tracking-widest uppercase">Hello, I&apos;m</p>
             <h1 className="text-4xl font-bold text-white font-(family-name:--font-cormorant)">
               Charbel Maroun
             </h1>
@@ -77,7 +77,7 @@ export function HeroSection() {
             <p className="text-gray-400 text-sm font-sans">
               SWE @ Pason Systems | Prev @ HXI Lab & GenRep AI
             </p>
-            <p className="text-gray-500 text-sm font-sans px-4 pt-2">
+            <p className="text-gray-400 text-sm font-sans px-4 pt-2">
               Passionate about building software that makes an impact.
             </p>
           </div>
@@ -91,7 +91,7 @@ export function HeroSection() {
               aria-label="GitHub"
               className="w-12 h-12 rounded-full bg-white flex items-center justify-center hover:scale-110 transition-transform"
             >
-              <Github className="h-5 w-5 text-[#0a1628]" />
+              <Github className="h-5 w-5 text-[#102a43]" />
             </a>
             <a
               href="https://linkedin.com/in/charbel-maroun-uofc"
@@ -103,7 +103,7 @@ export function HeroSection() {
               <Linkedin className="h-5 w-5 text-white" />
             </a>
             <a
-              href="mailto:charbel.maroun@ucalgary.ca"
+              href="mailto:mcharbel439@gmail.com"
               aria-label="Email"
               className="w-12 h-12 rounded-full bg-[#ea4335] flex items-center justify-center hover:scale-110 transition-transform"
             >
@@ -113,7 +113,7 @@ export function HeroSection() {
 
           {/* Download Button */}
           <div className={`pt-6 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <Button asChild className="gap-2 hover:scale-105 transition-transform bg-[#b8860b] text-white hover:bg-[#9a7309] text-sm px-6 py-5 uppercase tracking-wider rounded-full">
+            <Button asChild className="gap-2 hover:scale-105 transition-transform bg-[#8f6a08] text-white hover:bg-[#7a5a06] text-sm px-6 py-5 uppercase tracking-wider rounded-full">
               <a href="/logos/CharbelM_Resume.pdf" download>
                 Download Resume
                 <Download className="h-4 w-4" />
@@ -127,7 +127,7 @@ export function HeroSection() {
           {/* Left side - Content */}
           <div className={`space-y-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="space-y-4">
-              <p className="text-[#b8860b] text-lg font-medium font-sans tracking-wider uppercase">Hello, I&apos;m</p>
+              <p className="text-[#d4a017] text-lg font-medium font-sans tracking-wider uppercase">Hello, I&apos;m</p>
               <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold text-white font-(family-name:--font-cormorant) transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                 Charbel Maroun
               </h1>
@@ -143,31 +143,31 @@ export function HeroSection() {
                 rel="noopener noreferrer"
                 className={`block text-base font-sans transition-all duration-700 delay-350 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               >
-                <span className="text-[#b8860b] font-semibold">IEEE Publication:</span>
-                <span className="text-gray-400 hover:text-[#d4a017] transition-colors"> Digital Twin for Pipeline Leak Simulation</span>
+                <span className="text-[#d4a017] font-semibold">IEEE Publication:</span>
+                <span className="text-gray-400 hover:text-[#e8b53a] transition-colors"> Digital Twin for Pipeline Leak Simulation</span>
               </a>
             </div>
 
             <div className={`flex items-center gap-4 pt-4 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <Button variant="ghost" size="icon" asChild className="hover:scale-110 transition-transform hover:bg-blue-900 h-14 w-14 rounded-full">
+              <Button variant="ghost" size="icon" asChild className="hover:scale-110 transition-transform hover:bg-[#1b3a5c] h-14 w-14 rounded-full">
                 <a href="https://github.com/Charbel12323" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                   <Github className="h-7 w-7 text-white" />
                 </a>
               </Button>
-              <Button variant="ghost" size="icon" asChild className="hover:scale-110 transition-transform hover:bg-blue-900 h-14 w-14 rounded-full">
+              <Button variant="ghost" size="icon" asChild className="hover:scale-110 transition-transform hover:bg-[#1b3a5c] h-14 w-14 rounded-full">
                 <a href="https://linkedin.com/in/charbel-maroun-uofc" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                   <Linkedin className="h-7 w-7 text-white" />
                 </a>
               </Button>
-              <Button variant="ghost" size="icon" asChild className="hover:scale-110 transition-transform hover:bg-blue-900 h-14 w-14 rounded-full">
-                <a href="mailto:charbel.maroun@ucalgary.ca" aria-label="Email">
+              <Button variant="ghost" size="icon" asChild className="hover:scale-110 transition-transform hover:bg-[#1b3a5c] h-14 w-14 rounded-full">
+                <a href="mailto:mcharbel439@gmail.com" aria-label="Email">
                   <Mail className="h-7 w-7 text-white" />
                 </a>
               </Button>
             </div>
 
             <div className={`pt-4 transition-all duration-700 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <Button asChild className="gap-2 hover:scale-105 transition-transform bg-[#b8860b] text-white hover:bg-[#9a7309] text-lg px-8 py-6 uppercase tracking-wider">
+              <Button asChild className="gap-2 hover:scale-105 transition-transform bg-[#8f6a08] text-white hover:bg-[#7a5a06] text-lg px-8 py-6 uppercase tracking-wider">
                 <a href="/logos/CharbelM_Resume.pdf" download>
                   <Download className="h-5 w-5" />
                   Download Resume
@@ -179,9 +179,9 @@ export function HeroSection() {
           {/* Right side - Profile Image */}
           <div className={`flex items-center justify-center transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-br from-[#b8860b]/20 to-[#b8860b]/5 rounded-full blur-2xl"></div>
-              <div className="absolute -inset-1 bg-gradient-to-br from-[#b8860b] to-[#d4a017] rounded-full opacity-75"></div>
-              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#0a1628] bg-[#f5f5f5]">
+              <div className="absolute -inset-4 bg-gradient-to-br from-[#d4a017]/20 to-[#d4a017]/5 rounded-full blur-2xl"></div>
+              <div className="absolute -inset-1 bg-gradient-to-br from-[#d4a017] to-[#e8b53a] rounded-full opacity-75"></div>
+              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#102a43] bg-[#f5f5f5]">
                 <Image
                   src="/logos/CEO.png"
                   alt="Charbel Maroun"
@@ -189,8 +189,8 @@ export function HeroSection() {
                   height={600}
                   priority
                   quality={85}
-                  className="object-contain w-full h-full scale-110"
-                  style={{ objectPosition: 'center 45%' }}
+                  className="object-cover w-full h-full"
+                  style={{ objectPosition: 'center 15%' }}
                 />
               </div>
             </div>
