@@ -12,10 +12,9 @@ const projects = [
     title: "Jira Automation Engine",
     subtitle: "Agentic AI System for Workflow Automation",
     description:
-      "Built an agentic AI system that automated Jira workflows and was pitched to and adopted by Pason Systems. Integrated retrieval-augmented search across 10K+ documents, improving accuracy from 65% to 80%. Orchestrated a multi-step pipeline with tool orchestration and self-verification, reducing hallucination from 20% to 5%.",
+      "Built an agentic AI system that automated Jira workflows. Integrated retrieval-augmented search across 10K+ documents, improving accuracy from 65% to 80%. Orchestrated a multi-step pipeline with tool orchestration and self-verification, reducing hallucination from 20% to 5%.",
     techStack: ["Next.js", "TypeScript", "PostgreSQL", "DynamoDB", "Pinecone", "Python", "LangGraph", "Docker", "Redis"],
     highlights: [
-      "Pitched to and adopted by Pason Systems",
       "Improved RAG accuracy from 65% to 80% across 10K+ documents",
       "Reduced AI hallucination from 20% to 5% with self-verification",
     ],
